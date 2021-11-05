@@ -28,13 +28,13 @@ app.post("/user", (req, res) => {
 app.put("/user/:id", (req, res) => {
   if (users[req.params.id]) {
     if (req.body.name) {
-      users[req.params.name] = req.body.name;
+      users[req.params.id].name = req.body.name;
     }
     if (req.params.email) {
-      users[req.params.email] = req.body.email;
+      users[req.params.id].email = req.body.email;
     }
     if (req.params.address) {
-      users[req.params.address];
+      users[req.params.id].address = req.body.address;
     }
 
     res.send(users[req.params.id]);
