@@ -16,7 +16,7 @@ app.post("/user", (req, res) => {
   if (!req.body.name || !req.body.email || !req.body.address) {
     res.status(400).send("invalid data");
   } else {
-    users.unshift({
+    users.push({
       name: req.body.name,
       email: req.body.email,
       address: req.body.address,
@@ -45,7 +45,8 @@ app.put("/user/:id", (req, res) => {
 
 app.delete("/user/:id", (req, res) => {
   if (users[req.params.id]) {
-    users[req.params.id] = {};
+   // users[req.params.id] = {};
+    users.splice(req.params.id , req.params.id-1);
     res.send("user deleted!");
   } else {
     res.send("user not found");
