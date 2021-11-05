@@ -46,7 +46,7 @@ app.put("/user/:id", (req, res) => {
 app.delete("/user/:id", (req, res) => {
   if (users[req.params.id]) {
    // users[req.params.id] = {};
-    users.splice(req.params.id , req.params.id);
+    users.splice(req.params.id , 1);
     res.send("user deleted!");
   } else {
     res.send("user not found");
